@@ -1,0 +1,586 @@
+body{
+    margin: 0%;
+    overflow-x: hidden;
+    font-family: "Open Sans","system-ui","Segoe UI",Roboto,Oxygen,Ubuntu,"Fira Sans","Droid Sans","Helvetica Neue",sans;
+}
+
+nav {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    padding-left: 20px;
+    overflow-x: hidden;
+}
+
+.nav1 {
+    
+    padding-right: 5vw;
+    gap: 200px;
+    height: 100%;
+    padding: 10px;
+    
+}
+
+nav a{
+    text-decoration: none;
+    font-size: 150%;
+    color: white;
+    
+    
+}
+
+.textnav{
+    display: flex;
+    height: 100%;
+    gap: 100px;
+    width: 90vw;
+    padding-left: 80px;
+}
+
+.textnav a, button {
+    padding: 25px;
+    
+}
+
+.textnav a:hover {
+    background-color: #000000;
+    
+    
+}
+
+nav img {
+    width: 200px;
+    
+}
+
+#kjøpeknapp{
+    display: flex;
+    align-items: center;
+    background-color:  #00AE42;
+    color: white;
+    border-color: #00AE42;
+    border-radius: 10px;
+    height: 20px;
+    font-size: large;
+}
+#totingsammen{
+    display: flex;
+    margin-right: 23px;
+    gap: 50px;
+    align-items: center;
+    
+}
+#handlekurv{
+    width: 70px;
+    margin-right: 80px;
+}
+
+#handlekurvLink button{
+    background-color:  #00AE42;
+    color: white;
+    border-color: #00AE42;
+    border-radius: 10px;
+    font-size: large;
+    align-items: center;
+}
+#hovedbilde{
+    width: 100%;
+}
+.tekstover {
+    position: absolute;
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    padding: 10px; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-size: 80px;
+    width: 55%;
+    background-color: rgba(0, 0, 0, 0.9);;
+}
+h1{
+    text-align: center;
+}
+.bilderogtekst{
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.tekst{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 470px;
+    margin-right: 470px;
+}
+.produkter-container {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 40px;
+}
+
+.produkt {
+    
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.8s ease;
+    background-color: #eeeeee00; 
+    box-shadow: 5px 5px 10px 2px rgb(195, 195, 195);
+}
+
+
+#Overskrift{
+    font-size: x-large;
+    font-weight: 500;
+}
+#Pris{
+    font-weight: 800;
+    font-size: large;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.Bilder{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    
+}
+
+
+.produkt:hover {
+    transform: scale(1.05); 
+}
+.Prisogmer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+#Semer{
+    
+    align-items: center;
+    background-color:  #00AE42;
+    color: white;
+    border-color: #00AE42;
+    border-radius: 15px;
+    height: 20px;
+    font-size: large;
+    text-decoration: none;
+    padding: 17px;
+}
+#Flereprodukter{
+    
+    align-items: center;
+    background-color:  #00AE42;
+    color: white;
+    border-color: #00AE42;
+    border-radius: 15px;
+    height: 20px;
+    font-size: large;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.altprudukter{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 200px;
+}
+.altprudukter img{
+    width: 40vw;
+    
+}
+.tekstogkjøp{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: left !important ; 
+    width: 700px;
+    gap: 10px;
+    font-size: 3ch;
+}
+.logginn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(203, 203, 203);
+    width: 20vw;
+    border-radius: 25px;
+}
+.logginn2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+#inputt{
+    width: 10vw;
+    border-radius: 7px;
+    height: 3vh;
+}
+#logginnknapp{
+    display: flex;
+    justify-content: center;
+    background-color: #00AE42;
+    width: 8vw;
+    border-radius: 25px;
+    margin-top: 2vh;
+}
+#Handlekurvoverskrift{
+    margin-top: 6vh;
+    margin-bottom: 10vh;
+}
+.Teksthandlekurv{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20vw;
+    margin-left: 20vw;
+}
+.antallogtil{
+    display: flex;
+    gap: 19vw;
+}
+.produkthandlekurv{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(127, 127, 127);
+    border-top: 1px solid rgb(127, 127, 127);
+    align-items: center;
+    margin-right: 20vw;
+    margin-left: 20vw;
+    
+    
+}
+.produkthandlekurv img{
+    display: flex;
+    justify-content: space-between;
+    height: 180px; 
+    padding: 1px;
+}
+.tekstprodukthandlekurv{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.bildeogprodukt{
+    display: flex;
+}
+.number-input input{
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+    
+}
+.Handlekurvting{
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    padding-left: 56vw;
+    margin-bottom: 35vh;
+}
+
+
+#knappdiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#knappdivv{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.signup-container {
+    display: flex;
+    border-radius: 1px;
+    max-width: 500px;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+
+}
+
+
+.email-input {
+    border: none;
+    padding-right: 4vw;
+    width: 100%;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+}
+
+.signup-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background-color 0.3s;
+}
+.fotter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    p, a {
+        font-size: 30px;
+    }
+    h1, h2, h3{
+        font-size: 30px;
+        text-align: center;
+    }
+    img{
+        width: 100%;    
+    }
+    .tekstover {
+        position: absolute;
+        top: 10%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        color: white; 
+        padding: 10px; 
+        border-radius: 5px; 
+        text-align: center; 
+        font-size: 10px;
+        width: 55%;
+        background-color: rgba(0, 0, 0, 0.9);;
+    }
+    .fotter{
+        display: flex;
+        justify-content: space-between;
+        background-color: #000000;
+        color: rgb(255, 255, 255);
+        padding: 50px;
+        gap: 20px}
+        
+        .fotter h1{
+            font-size: 10px !important; 
+        }
+        .fotter img{
+            width: 50%;
+        }
+        .textnav a{
+            display: none;
+        }
+        nav {
+            background-color: #000000;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            padding-left: 0px;
+            overflow-x: hidden;
+        }
+        .logo img{
+            width: 36vw !important;
+        }
+        #handlekurv{
+            width: 30px;
+            margin-right: 0px;
+        }
+        #kjøpeknapp {
+            display: flex;
+            align-items: center;
+            background-color: #00AE42;
+            color: white;
+            border-color: #00AE42;
+            border-radius: 10px;
+            height: 2px;
+            font-size: 10px;
+            padding: 17px;
+        }
+        .altprudukter{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-items: center;
+            gap: 0px;
+            margin: 50px;
+        }
+        .altprudukter img{
+            width: 60%;
+            
+        }
+        .tekstogkjøp{
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center !important ; 
+            align-items: center;
+            width: 100%;
+            gap: 20pxpx;
+            font-size: 1px;
+            
+        }
+        .tekstogkjøp p{
+            font-size: 15px;
+        }
+        .logginn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(203, 203, 203);
+            width: 90vw;
+            border-radius: 25px
+            
+        }
+        .logginn2{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            
+        }
+        #inputt{
+            width: 60vw;
+            border-radius: 7px;
+            height: 4vh;
+        }
+        #logginnknapp{
+            display: flex;
+            justify-content: center;
+            background-color: #00AE42;
+            width: 80vw;
+            border-radius: 25px;
+            margin-top: 2vh;
+            
+        }
+        #Handlekurvoverskrift{
+            margin-top: 6vh;
+            margin-bottom: 2vh;
+            font-size: 30px;
+        }
+        .Teksthandlekurv{
+            display: flex;
+            justify-content: space-between;
+            margin-right: 4vw;
+            margin-left: 4vw;
+            
+        }
+        .Teksthandlekurv p{
+            font-size: 15px;
+        }
+        .antallogtil{
+            display: flex;
+            gap: 2vw;
+            
+        }
+        .produkthandlekurv{
+            display: flex;
+            
+            justify-content: space-between;
+            border-bottom: 1px solid rgb(127, 127, 127);
+            border-top: 1px solid rgb(127, 127, 127);
+            align-items: center;
+            margin-right: 4vw;
+            margin-left: 4vw;
+            
+        }
+        .produkthandlekurv p{
+            font-size: 10px;
+        }
+        .produkthandlekurv img{
+            display: flex;
+            justify-content: space-between;
+            height: 80px; 
+            width: 90px;
+        }
+        .tekstprodukthandlekurv{
+            display: flex;
+            flex-direction: column;
+        }
+        .tekstprodukthandlekurv{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bildeogprodukt{
+            display: flex;
+            
+            
+        }
+        .number-input input{
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            text-align: center;
+            
+        }
+        .Handlekurvting{
+            display: flex;
+            justify-content: center;
+            margin-top: 2vh;
+            padding-left: 56vw;
+            margin-bottom: 30vh;
+        }
+        .produkter-container {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 150px;
+            margin-bottom: 40px;
+            width: 80%;
+        }
+        .produkter-containerover{
+            display: flex;
+            justify-content: center;
+        }
+        .signup-container {
+            display: flex;
+            border-radius: 1px;
+            max-width: 500px;
+            width: 100%;
+            height: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            height: 30px;
+        }
+        
+        .email-input {
+            border: none;
+            padding-right: 4vw;
+            width: 100%;
+            font-size: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            outline: none;
+        }
+        
+        .signup-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: background-color 0.3s;
+            font-size: 10px;
+        }
+    }

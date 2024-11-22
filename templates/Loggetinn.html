@@ -1,0 +1,19 @@
+{% extends 'nav.html' %}
+
+{% block body %}
+<p>Antall spillere som har trykket på spillet: {{ visit_count }}</p>
+<title>Logget inn</title>
+<h1>Du er logget inn</h1>
+<div class="bilde">
+<a id="bilde" href="Spill"><img src="/static/bilder/Spill.png" alt="Bilde av klikker spillet"></a>
+</div>
+<div id="leaderboard">
+    <h2>Toppliste - Av flest dreppte Big mommys</h2>
+    <ol>
+    {% for user in top_users %}
+        <li>{{ user.email }} - Beseirede bosser: {{ user.defeats }}</li>
+    {% endfor %}
+    </ol>
+</div>
+
+{% endblock %}
