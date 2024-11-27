@@ -153,11 +153,25 @@ def load_user(user_id):
 @login_required
 def logout():
     return redirect(url_for('login'))
-
 @app.route('/')
+def kk():
+    return render_template("Index.html")
+
+@app.route('/index.html')
 def H():
     return render_template("Index.html")
 
+@app.route('/prudukt.html')
+def produkt():
+    return render_template("prudukt.html")
+
+@app.route('/detalj.html')
+def Detaljer():
+    return render_template("detalj.html")
+
+@app.route('/Handlekurv.html')
+def Handlekurv():
+    return render_template("Handlekurv.html")
 
 @app.route('/glemt_passord', methods=['GET', 'POST'])
 def glemt_passord():
