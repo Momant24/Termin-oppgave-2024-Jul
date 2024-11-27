@@ -102,7 +102,7 @@ def register():
     
     return render_template("Registrer.html", form=form)
 
-@app.route('/Logginn', methods=['GET','POST'])
+@app.route('/logginn.html', methods=['GET','POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():

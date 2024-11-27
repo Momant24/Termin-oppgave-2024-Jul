@@ -40,15 +40,25 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="logginn2">
+<div class="logginn" class="container">
     <form method="POST" action="">
+        <div>
+        <p>E-post</p>
         {{ form.hidden_tag() }}
+        </div>
+        <p>Passord</p>
         {{ form.email }}
+        <div>
         {{ form.password }}
+        </div>
+    <div id="logginnknapp">
         {{ form.submit }}
+    </div>
     </form>
     <a href="Registrer">Har du ikke en bruker? Lag en</a>
     <a href="glemt_passord">Glemt passord?</a>
+</div>
 </div>
 
 
