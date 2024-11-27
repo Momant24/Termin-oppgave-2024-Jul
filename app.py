@@ -115,7 +115,7 @@ def login():
                 msg.body = f"Din verifiseringskode er: {code}"
                 mail.send(msg)
                 return redirect(url_for('verify', email=user.email))  # Omadresser til verifiseringsrute
-    return render_template("Logginn.html", form=form)
+    return render_template("logginn.html", form=form)
 
 @app.route('/verifiser/<email>', methods=['GET', 'POST'])
 def verify(email):
