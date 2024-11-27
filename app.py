@@ -156,7 +156,7 @@ def logout():
 
 @app.route('/')
 def H():
-    return render_template("Hjem.html")
+    return render_template("Index.html")
 
 
 @app.route('/glemt_passord', methods=['GET', 'POST'])
