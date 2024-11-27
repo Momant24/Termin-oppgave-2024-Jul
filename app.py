@@ -9,7 +9,8 @@ from flask_mail import Mail, Message
 import random
 from flask_migrate import Migrate
 import os
-
+from email.mime.base import MIMEBase
+from email import encoders
 
 
 # Initialiserer Flask-applikasjonen
@@ -157,8 +158,25 @@ def logout():
 def kk():
     return render_template("Index.html")
 
-@app.route('/index.html')
+@app.route('/index.html', methods=['GET', 'POST'])
 def H():
+    if request.method == 'POST':
+        email = request.form.get('nyheter')
+        
+        if email:
+            msg = Message("Våre siste produkter", recipients=[email])
+            msg.body = f"Vi har 25% rabatt på rynkefjerner. Gå til http://10.100.10.104:5000 for å få de siste produktene"
+            
+            image_path = "static/bilder/Rynkefjerner.jpg"  # Bildebane på serveren
+            with open(image_path, "rb") as img:
+                msg.attach("image.jpg", "image/jpeg", img.read())
+
+            mail.send(msg)
+            
+            
+
+
+    
     return render_template("Index.html")
 
 @app.route('/prudukt.html')
