@@ -51,10 +51,19 @@ class VisitCount(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     count = db.Column(db.Integer, default=0)
 
+class Produkt(db.Model):
+    id = db.Column(db.String, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    price = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+
 # Sjekk om 'visit_count'-tabellen finnes, og opprett den hvis ikke
 with app.app_context():
     if 'visit_count' not in db.metadata.tables:
         db.create_all()  # Oppretter alle tabeller som ikke finnes
+
+
 
 
 # Definerer en modell for bruker
@@ -180,8 +189,12 @@ def H():
     return render_template("Index.html")
 
 @app.route('/prudukt.html')
-def produkt():
-    return render_template("prudukt.html")
+def hent_produkter():
+    product_id = request.args.get('id')  # Henter ID fra spørringsparameter
+    produkt = Produkt.query.get(product_id)  # Henter produktet med den spesifikke ID-en
+    if produkt is None:
+        return "Produkt ikke funnet", 404  # Returner 404 hvis produktet ikke finnes
+    return render_template('prudukt.html', produkt=produkt)
 
 @app.route('/detalj.html')
 def Detaljer():
@@ -189,7 +202,12 @@ def Detaljer():
 
 @app.route('/Handlekurv.html')
 def Handlekurv():
-    return render_template("Handlekurv.html")
+    product_id = request.args.get('id')  # Henter ID fra spørringsparameter
+    produkt = Produkt.query.get(product_id)  # Henter produktet med den spesifikke ID-en
+    if produkt is None:
+        return "Produkt ikke funnet", 404  # Returner 404 hvis produktet ikke finnes
+    return render_template("Handlekurv.html", produkt=produkt)
+
 
 @app.route('/glemt_passord', methods=['GET', 'POST'])
 def glemt_passord():

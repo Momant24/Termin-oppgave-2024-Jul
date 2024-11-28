@@ -23,11 +23,11 @@
 </nav>
 
 <div class="altprudukter">
-    <img id="productImage" src="static/bilder/Rynkefjerner.png" alt="Bilde av produktet du trykket på">
+    <img id="productImage" src="{{ produkt.image }}" alt="Bilde av {{ produkt.name }}">
     <div class="tekstogkjøp">
-        <h2 id="productName">Rynke fjerne ting</h2>
-        <p id="productDescription">Med daglig bruk av Rynkefjerner vil du oppleve en mer ungdommelig og strålende hudtone, med merkbart færre rynker og forbedret hudelastisitet. Ta steget mot en glattere og mer ungdommelig hud i dag med Rynkefjerner – din hemmelige allierte i kampen mot aldring!</p>
-        <p id="productPrice">10kr</p>
+        <h2 id="productName">{{ produkt.name }}</h2>
+        <p id="productDescription">{{ produkt.description }}</p>
+        <p id="productPrice">{{ produkt.price }}</p>
         <div id="knappdivvv2">
             <a id="handlekurvLink" href="#"><button id="leggTilHandklekurvID">Kjøp</button></a>
         </div>
