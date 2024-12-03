@@ -250,30 +250,56 @@ a{
     display: flex;
     gap: 19vw;
 }
-.produkthandlekurv{
+.produkthandlekurv {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 20px
+}
+.bildeogprodukt img{
+    display: flex;
+    justify-content: space-between;
+    height: 100%; 
+    padding: 1px;
+}
+.tekstprodukthandlekurv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px; 
+}
+.handlekurvalt{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-left: 5%;
+
+}
+button {
+    padding: 10px 20px; /* Legg til litt padding for knappen */
+    background-color: #007bff; /* Farge på knappen */
+    color: white; /* Tekstfarge */
+    border: none; /* Ingen kantlinje */
+    border-radius: 5px; /* Runde hjørner */
+    cursor: pointer; /* Endre musepekeren til hånd når du svever over knappen */
+}
+
+button:hover {
+    background-color: #0056b3; /* Mørkere blå ved hover */
+}
+
+.bildeogprodukt {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgb(127, 127, 127);
     border-top: 1px solid rgb(127, 127, 127);
     align-items: center;
-    margin-right: 20vw;
-    margin-left: 20vw;
-    
-    
-}
-.produkthandlekurv img{
-    display: flex;
-    justify-content: space-between;
-    height: 180px; 
-    padding: 1px;
-}
-.tekstprodukthandlekurv{
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-}
-.bildeogprodukt{
-    display: flex;
+    height: 20vh;
+    width: 60%;
 }
 .number-input input{
     width: 40px;

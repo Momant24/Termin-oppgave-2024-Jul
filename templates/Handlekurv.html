@@ -20,33 +20,45 @@
             <a href="Handlekurv.html"><img id="handlekurv" src="static/bilder/Handlekurv.svg" alt="Handlekurv"></a>
         </div>
     </nav>
-    <h1 id="Handlekurvoverskrift">Handlekurv</h1>
-    <div class="Teksthandlekurv">
-        <p>Produkt</p>
-        <div class="antallogtil">
-            <p>Antall</p>
-            <p>Til sammen</p>
-        </div>
-    </div>
-    <div class="produkthandlekurv">
-        <div class="bildeogprodukt">
-            <img id="productImageHandlekurv" src="static/bilder/Rynker.jpg" alt="Produktbilde">
-            <div class="tekstprodukthandlekurv">
-                <p id="productNameHandlekurv">Fin rynkefjerner</p>
-                <p id="productPriceHandlekurv">10 kr</p>
+    <div class="container">
+        <h1 id="Handlekurvoverskrift">Handlekurv</h1>
+        <div class="Teksthandlekurv">
+            <p>Produkt</p>
+            <div class="antallogtil">
+                <p>Antall</p>
+                <p>Til sammen</p>
             </div>
         </div>
-        <div class="antall">
-            <div class="number-input">
-                <input type="number" min="0" value="0">
+        
+        <div class="produkthandlekurv">
+            {% if cart_items %}
+            {% for item in cart_items %}
+            <div class="handlekurvalt">
+                <div class="bildeogprodukt">
+                    <img id="productImageHandlekurv" src="{{ item.product.image }}" alt="{{ item.product.name }}">
+                    <div class="tekstprodukthandlekurv">
+                        <p id="productNameHandlekurv">{{ item.product.name }}</p>
+                        <p id="productPriceHandlekurv">Pris: {{ item.product.price }}</p>
+                        <p>Antall: {{ item.quantity }}</p>
+                        <p>Til sammen: {{ item.quantity * item.product.price }} kr</p>
+                    </div>
+                    
+                </div>
+                <div>
+                    <form action="{{ url_for('remove_from_cart', product_id=item.product_id) }}" method="POST">
+                        <button type="submit">Fjern fra handlekurv</button>
+                    </form>
+                </div>
             </div>
+            {% endfor %}
+            {% else %}
+            <p>Handlekurven din er tom.</p>
+            {% endif %}
         </div>
-        <div class="Tilsammenpris">
-            <p id="productTotalPriceHandlekurv">10 kr</p>
+        
+        <div class="Handlekurvting">
+            <a id="Flereprodukter" href="index.html">Fortsett å handle</a>
         </div>
-    </div>
-    <div class="Handlekurvting">
-        <a id="Flereprodukter" href="index.html">Kjøp nå</a>
     </div>
     <div class="fotter">
         <h1>Vær den første til å få vite om våres nyeste produkter!</h1>

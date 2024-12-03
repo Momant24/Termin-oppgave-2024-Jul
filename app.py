@@ -58,6 +58,16 @@ class Produkt(db.Model):
     image = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
+class Cart(db.Model):
+    __tablename__='cart'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    product_id = db.Column(db.String, db.ForeignKey('produkt.id'), nullable=False)
+    quantity = db.Column(db.Integer, default=1)
+
+    user = db.relationship('User', backref='cart_items')
+    product = db.relationship('Produkt', backref='cart_items')
+
 # Sjekk om 'visit_count'-tabellen finnes, og opprett den hvis ikke
 with app.app_context():
     if 'visit_count' not in db.metadata.tables:
@@ -202,12 +212,40 @@ def Detaljer():
 
 @app.route('/Handlekurv.html')
 def Handlekurv():
-    product_id = request.args.get('id')  # Henter ID fra spørringsparameter
-    produkt = Produkt.query.get(product_id)  # Henter produktet med den spesifikke ID-en
-    if produkt is None:
-        return "Produkt ikke funnet", 404  # Returner 404 hvis produktet ikke finnes
-    return render_template("Handlekurv.html", produkt=produkt)
+    cart_items = Cart.query.filter_by(user_id=current_user.id).all()
+    return render_template('Handlekurv.html', cart_items=cart_items)
 
+@app.route('/add_to_cart/<product_id>', methods=['POST'])
+def add_to_cart(product_id):
+    # Sjekk om produktet finnes
+    produkt = Produkt.query.get(product_id)
+    if produkt is None:
+        return "Produkt ikke funnet", 404
+
+    # Sjekk om produktet allerede er i handlekurven
+    cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
+    if cart_item:
+        # Hvis produktet allerede finnes, øk antallet
+        cart_item.quantity += 1
+    else:
+        # Hvis ikke, opprett et nytt handlekurv-element
+        cart_item = Cart(user_id=current_user.id, product_id=product_id)
+        db.session.add(cart_item)
+
+    db.session.commit()
+    flash("Produktet ble lagt til i handlekurven!")
+    return redirect(url_for('Handlekurv'))  # Omdiriger til ønsket side
+
+@app.route('/remove_from_cart/<product_id>', methods=['POST'])
+def remove_from_cart(product_id):
+    cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
+    if cart_item:
+        db.session.delete(cart_item)
+        db.session.commit()
+        flash("Produktet ble fjernet fra handlekurven!")
+    else:
+        flash("Produktet finnes ikke i handlekurven.")
+    return redirect(url_for('Handlekurv'))  # Omdiriger til handlekurvvisning
 
 @app.route('/glemt_passord', methods=['GET', 'POST'])
 def glemt_passord():

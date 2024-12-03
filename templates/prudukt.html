@@ -29,7 +29,9 @@
         <p id="productDescription">{{ produkt.description }}</p>
         <p id="productPrice">{{ produkt.price }}</p>
         <div id="knappdivvv2">
-            <a id="handlekurvLink" href="#"><button id="leggTilHandklekurvID">Kjøp</button></a>
+            <form action="{{ url_for('add_to_cart', product_id=produkt.id) }}" method="POST">
+            <a type="submit" id="handlekurvLink" href="#"><button id="leggTilHandklekurvID">Kjøp</button></a>
+        </form>
         </div>
     </div>
 </div>
