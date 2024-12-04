@@ -270,16 +270,18 @@ a{
 
 }
 button {
-    padding: 10px 20px; /* Legg til litt padding for knappen */
-    background-color: #bc2626; /* Farge på knappen */
-    color: white; /* Tekstfarge */
-    border: none; /* Ingen kantlinje */
-    border-radius: 5px; /* Runde hjørner */
-    cursor: pointer; /* Endre musepekeren til hånd når du svever over knappen */
+    display: flex;
+    align-items: center;
+    background-color:  #00AE42;
+    color: white;
+    border-color: #00AE42;
+    border-radius: 10px;
+    height: 20px;
+    font-size: large;
 }
 
 button:hover {
-    background-color: #0056b3; /* Mørkere blå ved hover */
+    background-color: #04c64f; /* Mørkere blå ved hover */
 }
 
 .bildeogprodukt {

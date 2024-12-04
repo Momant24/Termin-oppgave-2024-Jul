@@ -1,4 +1,4 @@
-{% extends 'nav.html' %}
+{% extends 'nav2.html' %}
 <a href="" target="_blank" class="nav-link">Spill</a>
 {% block body %}
 <!DOCTYPE html>
@@ -7,8 +7,15 @@
     <meta charset="UTF-8">
     <title>Klikker-spill</title>
     <link rel="stylesheet" href="static/Style.css">
+    <link rel="stylesheet" href="static/Styling.css">
 </head>
 <body>
+    <div class="altspill">
+        <div class="nav">
+            <a href="loggetinn" class="nav-link">Hjem</a>
+            <a href="Spill" class="nav-link">Spill</a>
+            <a href="logout" class="nav-link">Logg ut</a>
+        </div>
     <p>Antall spillere som har trykket på spillet: {{ visit_count }}</p>
     <div class="container">
         <h1>Angrip Big Mama</h1>
@@ -41,6 +48,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="static/javascript.js"></script>
 </body>
 </html>

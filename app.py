@@ -199,12 +199,25 @@ def H():
     
     return render_template("Index.html")
 
-@app.route('/prudukt.html')
+@app.route('/prudukt.html', methods=['GET', 'POST'])
 def hent_produkter():
     product_id = request.args.get('id')  # Henter ID fra spørringsparameter
     produkt = Produkt.query.get(product_id)  # Henter produktet med den spesifikke ID-en
     if produkt is None:
         return "Produkt ikke funnet", 404  # Returner 404 hvis produktet ikke finnes
+    
+    if request.method == 'POST':
+        email = request.form.get('nyheter')
+        
+        if email:
+            msg = Message("Våre siste produkter", recipients=[email])
+            msg.body = f"Vi har 25% rabatt på rynkefjerner. Gå til http://10.100.10.104:5000 for å få de siste produktene"
+            
+            image_path = "static/bilder/Rynkefjerner.jpg"  # Bildebane på serveren
+            with open(image_path, "rb") as img:
+                msg.attach("image.jpg", "image/jpeg", img.read())
+
+            mail.send(msg)
     return render_template('prudukt.html', produkt=produkt)
 
 @app.route('/detalj.html')

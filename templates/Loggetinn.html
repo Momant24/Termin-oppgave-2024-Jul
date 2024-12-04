@@ -1,19 +1,34 @@
-{% extends 'nav.html' %}
+{% extends 'nav2.html' %}
+
 
 {% block body %}
-<p>Antall spillere som har trykket på spillet: {{ visit_count }}</p>
-<title>Logget inn</title>
-<h1>Du er logget inn</h1>
-<div class="bilde">
-<a id="bilde" href="Spill"><img src="/static/bilder/Spill.png" alt="Bilde av klikker spillet"></a>
-</div>
-<div id="leaderboard">
-    <h2>Toppliste - Av flest dreppte Big mommys</h2>
-    <ol>
-    {% for user in top_users %}
-        <li>{{ user.email }} - Beseirede bosser: {{ user.defeats }}</li>
-    {% endfor %}
-    </ol>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/Style.css">
+    <link rel="stylesheet" href="static/Styling.css">
+</head>
+<body>
+
+    <p>Antall spillere som har trykket på spillet: {{ visit_count }}</p>
+    <title>Logget inn</title>
+    <h1>Du er logget inn</h1>
+    <div class="bilde">
+    <a id="bilde" href="Spill"><img src="/static/bilder/Spill.png" alt="Bilde av klikker spillet"></a>
+    </div>
+    <div id="leaderboard">
+        <h2>Toppliste - Av flest dreppte Big mommys</h2>
+        <ol>
+        {% for user in top_users %}
+            <li>{{ user.email }} - Beseirede bosser: {{ user.defeats }}</li>
+        {% endfor %}
+        </ol>
+    </div> 
+</body>
+</html>
+
 
 {% endblock %}

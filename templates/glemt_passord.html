@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glemt passord</title>
     <link rel="stylesheet" href="static/Style.css">
+    <link rel="stylesheet" href="static/Styling.css">
 </head>
 <body>
     <div class="container">
@@ -23,5 +24,15 @@
             {% endif %}
         {% endwith %}
     </div>
+    <div class="fotter">
+        <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
+        <form method="POST">
+        <div class="signup-container">
+            <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
+            <button type="submit" class="signup-button">Sign up</button>
+        </div>
+        </form>
+    </div>
 </body>
+
 </html>
