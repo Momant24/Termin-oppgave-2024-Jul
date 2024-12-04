@@ -22,13 +22,6 @@
     </nav>
     <div class="container">
         <h1 id="Handlekurvoverskrift">Handlekurv</h1>
-        <div class="Teksthandlekurv">
-            <p>Produkt</p>
-            <div class="antallogtil">
-                <p>Antall</p>
-                <p>Til sammen</p>
-            </div>
-        </div>
         
         <div class="produkthandlekurv">
             {% if cart_items %}
@@ -55,10 +48,15 @@
             <p>Handlekurven din er tom.</p>
             {% endif %}
         </div>
+        <div id="knappdivvv2">
+            <form action="{{ url_for('kvitering', product_id=produkt.id) }}" method="POST">
+            <a type="submit" id="handlekurvLink" href="#"><button id="leggTilHandklekurvID">Kjøp</button></a>
+        </form>
         
         <div class="Handlekurvting">
             <a id="Flereprodukter" href="index.html">Fortsett å handle</a>
         </div>
+
     </div>
     <div class="fotter">
         <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
