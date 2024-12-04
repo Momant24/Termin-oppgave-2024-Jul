@@ -1,0 +1,43 @@
+{% extends 'nav2.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styling.css">
+    <title>Kvitering</title>
+</head>
+<body>
+    <H1>Takk for kjøpet</H1>
+    <p>Vi håper du liker produktet</p>
+    <div class="produkthandlekurv">
+        {% if kviteringting %}
+        {% for item in kviteringting %}
+        <div class="handlekurvalt">
+            <div class="bildeogprodukt">
+                <img id="productImageHandlekurv" src="{{ item.product.image }}" alt="{{ item.product.name }}">
+                <div class="tekstprodukthandlekurv">
+                    <p id="productNameHandlekurv">{{ item.product.name }}</p>
+                    <p id="productPriceHandlekurv">Pris: {{ item.product.price }}</p>
+                    <p>Antall: {{ item.quantity }}</p>
+                    <p>Til sammen: {{ item.quantity * item.product.price }} kr</p>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="fotter">
+            <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
+            <form method="POST">
+                <div class="signup-container">
+                    <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
+                    <button type="submit" class="signup-button">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>
+    {% endblock %}

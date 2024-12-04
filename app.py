@@ -11,6 +11,7 @@ from flask_migrate import Migrate
 import os
 from email.mime.base import MIMEBase
 from email import encoders
+from sqlalchemy.orm import joinedload
 
 
 # Initialiserer Flask-applikasjonen
@@ -246,6 +247,16 @@ def remove_from_cart(product_id):
     else:
         flash("Produktet finnes ikke i handlekurven.")
     return redirect(url_for('Handlekurv'))  # Omdiriger til handlekurvvisning
+
+@app.route('/kvitering.html', methods=['POST'])
+def kvitering():
+    kviteringting = Cart.query.options(joinedload(Cart.product)).filter_by(user_id=current_user.id).all()
+    
+    for item in kviteringting:
+        db.session.delete(item)
+    db.session.commit()
+    
+    return render_template('kvitering.html', kviteringting=kviteringting)
 
 @app.route('/glemt_passord', methods=['GET', 'POST'])
 def glemt_passord():
