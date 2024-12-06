@@ -22,7 +22,7 @@
                     <p id="productNameHandlekurv">{{ item.product.name }}</p>
                     <p id="productPriceHandlekurv">Pris: {{ item.product.price }}</p>
                     <p>Antall: {{ item.quantity }}</p>
-                    <p>Til sammen: {{ item.quantity * item.product.price }} kr</p>
+                    <p>Til sammen: {{ item.quantity * item.product.pricetall }} {{ item.product.pricetext }} </p>
                 </div>
                 
             </div>
@@ -31,13 +31,12 @@
         {% endif %}
         <div class="fotter">
             <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
-            <form method="POST">
+            <form method="POST" action="{{ url_for('subscribe_newsletter') }}">
                 <div class="signup-container">
                     <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
                     <button type="submit" class="signup-button">Sign up</button>
                 </div>
             </form>
         </div>
-    </body>
     </html>
     {% endblock %}

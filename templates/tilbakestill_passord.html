@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Tilbakestilling av passord</title>
     <link rel="stylesheet" href="static/Style.css">
+    <link rel="stylesheet" href="static/styling.css">
 </head>
 <body>
     <div class="container">
@@ -19,6 +20,15 @@
             <input type="submit" value="Tilbakestill passord">
         </form>
         <p>{{ get_flashed_messages()[0] }}</p>
+    </div>
+    <div class="fotter">
+        <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
+        <form method="POST" action="{{ url_for('subscribe_newsletter') }}">
+            <div class="signup-container">
+                <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
+                <button type="submit" class="signup-button">Sign up</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

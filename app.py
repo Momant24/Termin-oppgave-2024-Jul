@@ -56,6 +56,8 @@ class Produkt(db.Model):
     id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)
     price = db.Column(db.String, nullable=False)
+    pricetall = db.Column(db.Integer, nullable=False)
+    pricetext = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
@@ -192,12 +194,27 @@ def H():
                 msg.attach("image.jpg", "image/jpeg", img.read())
 
             mail.send(msg)
-            
-            
-
-
     
     return render_template("Index.html")
+            
+            
+@app.route('/subscribe_newsletter', methods=['POST'])
+def subscribe_newsletter():
+    email = request.form.get('nyheter')
+    if email:
+        msg = Message("Våre siste produkter", recipients=[email])
+        msg.body = f"Vi har 25% rabatt på rynkefjerner. Gå til http://10.100.10.104:5000 for å få de siste produktene"
+            
+        image_path = "static/bilder/Rynkefjerner.jpg"  # Bildebane på serveren
+        with open(image_path, "rb") as img:
+            msg.attach("image.jpg", "image/jpeg", img.read())
+
+        mail.send(msg)
+    
+    return redirect(request.referrer)  # Gå tilbake til siden brukeren kom fra
+
+    
+    
 
 @app.route('/prudukt.html', methods=['GET', 'POST'])
 def hent_produkter():

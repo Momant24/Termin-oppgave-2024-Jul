@@ -269,16 +269,7 @@ a{
     margin-left: 5%;
 
 }
-button {
-    display: flex;
-    align-items: center;
-    background-color:  #00AE42;
-    color: white;
-    border-color: #00AE42;
-    border-radius: 10px;
-    height: 20px;
-    font-size: large;
-}
+
 
 button:hover {
     background-color: #04c64f; /* Mørkere blå ved hover */

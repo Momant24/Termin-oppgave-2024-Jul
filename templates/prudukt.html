@@ -38,11 +38,11 @@
 
 <div class="fotter">
     <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
-    <form method="POST">
-    <div class="signup-container">
-        <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
-        <button type="submit" class="signup-button">Sign up</button>
-    </div>
+    <form method="POST" action="{{ url_for('subscribe_newsletter') }}">
+        <div class="signup-container">
+            <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
+            <button type="submit" class="signup-button">Sign up</button>
+        </div>
     </form>
 </div>
 <script src="static/js.js"></script>
