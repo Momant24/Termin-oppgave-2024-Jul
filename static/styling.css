@@ -354,6 +354,103 @@ button:hover {
     padding: 50px;
 
 }
+.small-navbar {
+    background-color: #333; /* Mørk bakgrunn */
+    color: #fff; /* Hvit tekst */
+    padding: 1em;
+    text-align: center;
+}
+
+.small-navbar a {
+    color: #fff; /* Hvit tekst for lenker */
+    margin: 0 1em;
+    text-decoration: none;
+}
+
+.small-navbar a:hover {
+    text-decoration: underline; /* Understrek ved hover */
+}
+
+
+
+
+/* Media queries for smaller screens */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5em;
+        width: 90%;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    #info {
+        padding: 1em;
+    }
+}
+
+#leaderboard {
+    margin: 2em auto;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#leaderboard h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+#leaderboardList {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+#leaderboardList li {
+    padding: 0.8em 1em;
+    margin: 0.5em 0;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#leaderboardList li:nth-child(1) {
+    background-color: #ffd700;
+    font-weight: bold;
+}
+
+#leaderboardList li:nth-child(2) {
+    background-color: #c0c0c0;
+}
+
+#leaderboardList li:nth-child(3) {
+    background-color: #cd7f32;
+}
+
+/* Stiler for navigasjonsmenyen */
+#bilde {
+}
+
+.bilde img {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+.bilde {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
 
 @media only screen and (max-width: 600px) {
     p, a {
