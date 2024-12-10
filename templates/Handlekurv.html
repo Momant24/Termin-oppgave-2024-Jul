@@ -1,3 +1,7 @@
+{% extends 'nav2.html' %}
+
+
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +11,6 @@
     <link rel="stylesheet" href="static/styling.css">
 </head>
 <body>
-    <nav>
-        <a class="logo" href="index.html"><img src="static/bilder/Bambu_Slabswird.svg" alt="Logo"></a>
-        <div class="textnav">
-            <a href="index.html">Hjem</a>
-            <a href="detalj.html">Produkter</a>
-            <a href="prudukt.html">Things</a>
-            <a href="#">Things</a>
-        </div>
-        <div id="totingsammen">
-            <a href="logginn.html"><button id="kjøpeknapp">Logg inn</button></a>
-            <a href="Handlekurv.html"><img id="handlekurv" src="static/bilder/Handlekurv.svg" alt="Handlekurv"></a>
-        </div>
-    </nav>
     <div class="container">
         <h1 id="Handlekurvoverskrift">Handlekurv</h1>
         
@@ -70,3 +61,4 @@
     <script src="static/js.js"></script>
 </body>
 </html>
+{% endblock %}

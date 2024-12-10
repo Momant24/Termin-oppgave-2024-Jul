@@ -1,0 +1,33 @@
+{% extends 'nav2.html' %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Søke Resultater</title>
+    <link rel="stylesheet" href="static/styling.css">
+</head>
+<body>
+    <h1>Søke Resultater</h1>
+    <div class="produkter-containerover">
+        <div class="produkter-container">
+            {% for produkt in results %}
+            <div class="produkt">
+                <a href="prudukt.html?id={{ produkt.id }}">
+                    <div class="Bilder">
+                        <img src="{{ produkt.image }}" alt="{{ produkt.name }}">
+                    </div>
+                    <div class="Prisogmer">
+                        <p id="Overskrift">{{ produkt.name }}</p>
+                        <p id="Pris">Pris: {{ produkt.price }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

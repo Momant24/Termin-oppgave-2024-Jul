@@ -1,3 +1,7 @@
+{% extends 'nav2.html' %}
+
+
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,26 +13,6 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="static/bilder/Bambu_Slabswird.svg" alt="Logoen og hjem knapp"></a>
-        </div>
-        
-    </div>
-    <div class="textnav">
-        <a href="index.html">Hjem</a>
-        <a href="detalj.html">Produkter</a>
-        <a href="prudukt.html">Things</a>
-        <a href="">Things</a>
-        
-        
-    </div>
-    <div id="totingsammen">
-        <a href="logginn.html"> <button id="kjøpeknapp">Logg inn</button> </a>
-        <a href="Handlekurv.html"><img id="handlekurv" src="static/bilder/Handlekurv.svg" alt="Handlekurv"></a>
-    </div>
-</div>
-</nav>
 <img id="hovedbilde" src="static/bilder/Hovedbilde.png" alt="Pikselert bilde av en skog">
 <div class="tekstover">Utforsk våre nyeste produkter!</div>
 <h1>Ofte kjøpt sammen</h1>
@@ -144,3 +128,4 @@
 </body>
 
 </html>
+{% endblock %}

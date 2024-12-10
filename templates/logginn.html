@@ -1,3 +1,8 @@
+{% extends 'nav2.html' %}
+
+
+{% block body %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,19 +13,6 @@
 </head>
 <body>
 
-    <nav>
-        <a class="logo" href="index.html"><img src="./Bilder/Bambu_Slabswird.svg" alt=""></a>
-        <div class="textnav">
-            <a href="index.html">Hjem</a>
-            <a href="detalj.html">Produkter</a>
-            <a href="prudukt.html">Things</a>
-            <a href="">Things</a>
-        </div>
-        <div id="totingsammen">
-            <a href="Handlekurv.html"><img id="handlekurv" src="Bilder/Handlekurv.svg" alt=""></a>
-        </div>
-    </div>
-</nav>
 <nav class="small-navbar">
     <a href="index.html">Hjem</a>
     <a href="produkter.html">Produkter</a>
@@ -80,3 +72,4 @@
 <script src="static/js.js"></script>
 </body>
 </html>
+{% endblock %}

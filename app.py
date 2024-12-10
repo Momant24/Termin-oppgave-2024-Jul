@@ -196,7 +196,12 @@ def H():
             mail.send(msg)
     
     return render_template("Index.html")
-            
+
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')
+    results = Produkt.query.filter(Produkt.name.ilike(f'%{query}%')).all()
+    return render_template('soking.html', results=results)  
             
 @app.route('/subscribe_newsletter', methods=['POST'])
 def subscribe_newsletter():
