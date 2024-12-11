@@ -248,28 +248,58 @@ def Detaljer():
 
 @app.route('/Handlekurv.html')
 def Handlekurv():
-    cart_items = Cart.query.filter_by(user_id=current_user.id).all()
+    cart_items = []
+
+    if current_user.is_authenticated:
+        # Hent handlekurvdata fra databasen for innloggede brukere
+        cart_items = Cart.query.filter_by(user_id=current_user.id).all()
+    else:
+        # Hent handlekurvdata fra session for anonyme brukere
+        if 'cart' in session:
+            for product_id, quantity in session['cart'].items():
+                produkt = Produkt.query.get(product_id)
+                if produkt:
+                    cart_items.append({
+                        'product': produkt,
+                        'quantity': quantity
+                    })
+
     return render_template('Handlekurv.html', cart_items=cart_items)
+
+from flask import session, redirect, url_for, flash
+from flask_login import current_user
 
 @app.route('/add_to_cart/<product_id>', methods=['POST'])
 def add_to_cart(product_id):
-    # Sjekk om produktet finnes
     produkt = Produkt.query.get(product_id)
     if produkt is None:
         return "Produkt ikke funnet", 404
 
-    # Sjekk om produktet allerede er i handlekurven
-    cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
-    if cart_item:
-        # Hvis produktet allerede finnes, øk antallet
-        cart_item.quantity += 1
+    if current_user.is_authenticated:
+        # Håndterer innloggede brukere
+        cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
+        if cart_item:
+            # Hvis produktet allerede finnes, øk antallet
+            cart_item.quantity += 1
+        else:
+            # Hvis ikke, opprett et nytt handlekurv-element
+            cart_item = Cart(user_id=current_user.id, product_id=product_id, quantity=1)
+            db.session.add(cart_item)
+        db.session.commit()
+        flash("Produktet ble lagt til i handlekurven!")
     else:
-        # Hvis ikke, opprett et nytt handlekurv-element
-        cart_item = Cart(user_id=current_user.id, product_id=product_id)
-        db.session.add(cart_item)
+        # Håndterer anonyme brukere med session
+        if 'cart' not in session:
+            session['cart'] = {}
 
-    db.session.commit()
-    flash("Produktet ble lagt til i handlekurven!")
+        if product_id in session['cart']:
+            session['cart'][product_id] += 1  # Øk antallet
+        else:
+            session['cart'][product_id] = 1  # Legg til produktet
+
+        session.modified = True  # Marker session som endret
+        flash("Produktet ble lagt til i handlekurven (anonym)!")
+
     return redirect(url_for('Handlekurv'))  # Omdiriger til ønsket side
 
 @app.route('/remove_from_cart/<product_id>', methods=['POST'])
