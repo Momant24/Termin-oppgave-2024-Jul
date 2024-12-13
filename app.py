@@ -307,13 +307,24 @@ def add_to_cart(product_id):
 
 @app.route('/remove_from_cart/<product_id>', methods=['POST'])
 def remove_from_cart(product_id):
-    cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
-    if cart_item:
-        db.session.delete(cart_item)
-        db.session.commit()
-        flash("Produktet ble fjernet fra handlekurven!")
+    if current_user.is_authenticated:
+        # Håndterer innloggede brukere
+        cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
+        if cart_item:
+            db.session.delete(cart_item)
+            db.session.commit()
+            flash("Produktet ble fjernet fra handlekurven!")
+        else:
+            flash("Produktet finnes ikke i handlekurven.")
     else:
-        flash("Produktet finnes ikke i handlekurven.")
+        # Håndterer anonyme brukere med session
+        if 'cart' in session and product_id in session['cart']:
+            del session['cart'][product_id]  # Fjern produktet fra session
+            session.modified = True  # Marker session som endret
+            flash("Produktet ble fjernet fra handlekurven (anonym)!")
+        else:
+            flash("Produktet finnes ikke i handlekurven.")
+
     return redirect(url_for('Handlekurv'))  # Omdiriger til handlekurvvisning
 
 @app.route('/kvitering.html', methods=['POST'])
