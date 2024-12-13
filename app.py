@@ -245,6 +245,9 @@ def hent_produkter():
 @app.route('/detalj.html')
 def Detaljer():
     return render_template("detalj.html")
+@app.route('/Hjelp.html')
+def Hjelp():
+    return render_template("Hjelp.html")
 
 @app.route('/Handlekurv.html')
 def Handlekurv():

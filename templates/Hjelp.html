@@ -1,0 +1,31 @@
+{% extends 'nav2.html' %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hjelp</title>
+    <link rel="stylesheet" href="static/styling.css">
+</head>
+<body>
+    <h1>Hjelp side</h1>
+    <h2>FAQ</h2>
+    <p></p>
+    <h2>Se pdf</h2>
+    <a href="static/FAQ.pdf"><img src="static/bilder/Pdf.png" width="10%" alt=""></a>
+    
+    <div class="fotter">
+        <h1>Vær den første til å få vite om våres nyeste produkter!</h1>
+        <form method="POST" action="{{ url_for('subscribe_newsletter') }}">
+            <div class="signup-container">
+                <input type="email" name="nyheter" class="email-input" placeholder="Skriv din/hennes/hans/oss/deres/ailien email">
+                <button type="submit" class="signup-button">Sign up</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}
